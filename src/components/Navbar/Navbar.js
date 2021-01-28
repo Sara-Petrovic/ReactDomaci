@@ -1,45 +1,48 @@
-import React, { Component } from 'react';
+import React, { useState,useEffect } from 'react';
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 
-class Navbar extends Component {
-    state = { clicked: false }
+function Navbar (){
+    const [click,setClick] = useState(false);
+    const [button,setButton] = useState(true);
 
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
-    }
+    const handleClick = () =>  setClick(!click);
+    const closeMobileMenu = () => setClick(false);
 
-    /* like() {
-        alert("Hvala Vam što ste rekli da Vam se sviđa naša firma!");
-    }  */
+    const showButton = () => {
+        if (window.innerWidth <= 960) {
+          setButton(false);
+        } else {
+          setButton(true);
+        }
+      };
+    
+      useEffect(() => { //da se ne bi dugme pojavilo u mobile view kad se refreshuje stranica
+        showButton();
+      }, []);
+    
+      window.addEventListener('resize', showButton);
 
-    render() {
         return (
             <nav className="NavbarItems">
-                <h1 className="navbar-logo">Moje zgrade<i className="fab fa-react"></i></h1>
-                <div className="menu-icon"  onClick={this.handleClick} >
-                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i> 
+                <Link to='/' className='navbar-logo' style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>Moje zgrade<i className='fas fa-home'/></Link>
+                <div className="menu-icon"  onClick={handleClick} >
+                     <i className={click? 'fas fa-times' : 'fas fa-bars'}></i> 
                 </div>
-                <ul  className={this.state.clicked ? 'nav-menu active' : 'nav-menu'} >
+                <ul  className={click ? 'nav-menu active' : 'nav-menu'} >
                     {MenuItems.map((item, index) => {
                         return (
-                            /* <li className={item.cName}><Link to={item.url}>
-                                {item.title}</Link>
-                            </li> */
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                    {item.title}
-                                </a>
-                             </li>
+                            <li className='nav-item' >
+                                <Link to={item.url} className={item.cName} onClick={closeMobileMenu}>{item.title}</Link>
+                            </li>    
                         )
                     })}
                 </ul>
-             <Button /* onClick={this.like} */>Uloguj se</Button> 
+             {button && <Button buttonStyle='btn--outline'>Uloguj se</Button> }
             </nav>
         )
-    }
 }
 
 export default Navbar;

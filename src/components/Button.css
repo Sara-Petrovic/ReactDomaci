@@ -1,5 +1,5 @@
 :root {
-    --primary: rgb(196, 37, 245);
+    --primary: #fff;
 }
 
 .btn {
@@ -19,7 +19,8 @@
 }
 
 .btn--primary {
-    background-color: var(--primary);
+    background-color: rgb(208, 4, 235);;
+    color: rgb(178, 47, 196);
 }
 
 .btn--outline {
@@ -33,14 +34,12 @@
 
 .btn--medium {
     padding: 8px 20px;
-    border-radius: 4px;
     font-size: 18px;
     color: #fff;
 }
 
-.btn-large {
+.btn--large {
     padding: 12px 26px;
-    border-radius: 4px;
     font-size: 20px;
     color: #fff;
 }
