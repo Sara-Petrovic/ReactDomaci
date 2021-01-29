@@ -16,7 +16,7 @@ function App() {
       <Route path='/' exact component={Pocetna}/>
       <Route path='/pocetna' exact component={Pocetna}/>
       <Route exact path="/kontakt" component={Kontakt}/>
-      <Route path='/ulogujse' component={Ulogujse} />
+      <Route path='/ulogujse' component={{Ulogujse}.openModal} />
     </Switch>
     </Router>
      </>

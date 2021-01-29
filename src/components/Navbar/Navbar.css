@@ -144,8 +144,19 @@
         color:rgb(178, 47, 196);
         transition: 250ms;
     }
-    #login-button {
+    #login-btn{
         display: none !important;
     }
+    #login-btn-mobile{
+        display:block !important;
+    }
+}
+
+.login{
+    margin: auto;
+}
+
+#login-btn-mobile{
+    display:none;
 }
 

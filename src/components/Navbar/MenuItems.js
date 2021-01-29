@@ -8,11 +8,6 @@ export const MenuItems = [
         title: 'Kontakt',
         url: '/kontakt',
         cName: 'nav-links'
-    },
-    {
-        title: 'Uloguj se',
-        url: '/ulogujse',
-        cName: 'nav-links-mobile'
     }
    
 
