@@ -6,22 +6,11 @@ function Kontakt(){
         telefon: "061/6448004"
     }
     return(
-        <div>
+        <div className="container" style={{marginTop: 2 + 'em'}}>
             <h2>Ukoliko imate problema sa koriscenjem sajta posaljite nam poruku:</h2>
-            <br></br>
-            <br></br>
             <KontaktForma/>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-
-            
             <p>Takodje, možete nas pozvati na broj {kontakt.telefon} </p>
             <br></br>
-
-    
-            
         </div>
     )
 }

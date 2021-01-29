@@ -20,7 +20,7 @@ class KontaktForma extends React.Component {
     render() {
         return (
             <div className="App">
-                <form id="contact-form">
+                <form id="contact-form" >
                     <div className="form-group">
                         <label htmlFor="name">Ime</label>
                         <input type="text" className="form-control" id="name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
@@ -33,10 +33,11 @@ class KontaktForma extends React.Component {
                         <label htmlFor="message">Poruka</label>
                         <textarea className="form-control" rows="5" id="message" value={this.state.message} onChange={this.onMessageChange.bind(this)} />
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={() => alert('Poruka je poslata. Ime: ' +this.state.name + '. Email: ' + this.state.email + ', poruka: '+ this.state.message )}> Posalji  </button>
+                    <div className="form-group">
+                    <button type="submit" className="btn btn-primary" onClick={() => alert('Poruka je poslata. Ime: ' +this.state.name + '. Email: ' + this.state.email + ', poruka: '+ this.state.message )}> Posalji </button>
+                    </div>
                 </form>
             
-                
             </div>
         );
     }

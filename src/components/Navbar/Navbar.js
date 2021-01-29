@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { MenuItems } from "./MenuItems";
 import { Button } from "../Button";
 import './Navbar.css';
+import Ulogujse from '../pages/Ulogujse';
 import { Link } from 'react-router-dom';
 
 function Navbar (){
@@ -27,22 +28,25 @@ function Navbar (){
 
         return (
             <nav className="NavbarItems">
-                <Link to='/' className='navbar-logo' style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>Moje zgrade<i className='fas fa-home'/></Link>
+                <Link to='/' className='navbar-logo' style={{ textDecoration: 'none' }} onClick={closeMobileMenu}>Moje zgrade <i className='fas fa-home'/></Link>
                 <div className="menu-icon"  onClick={handleClick} >
                      <i className={click? 'fas fa-times' : 'fas fa-bars'}></i> 
                 </div>
                 <ul  className={click ? 'nav-menu active' : 'nav-menu'} >
                     {MenuItems.map((item, index) => {
                         return (
-                            <li className='nav-item' >
+                            <li className='nav-item' key={index}>
                                 <Link to={item.url} className={item.cName} onClick={closeMobileMenu}>{item.title}</Link>
                             </li>    
                         )
                     })}
+                    
                 </ul>
-             {button && <Button buttonStyle='btn--outline'>Uloguj se</Button> }
+                <Ulogujse></Ulogujse>
             </nav>
         )
+
+        
 }
 
 export default Navbar;

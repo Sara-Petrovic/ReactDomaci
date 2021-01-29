@@ -10,7 +10,7 @@
 .navbar-logo{
     color: white;
     justify-self: start;
-    margin-left: 20px;
+    margin: auto;
     cursor: pointer;
 }
 
@@ -27,7 +27,7 @@
     text-align: center;
     width: 70vw;
     justify-content: end;
-    margin-right: 2rem;
+    margin: auto;
 }
 
  .nav-links{
@@ -144,7 +144,7 @@
         color:rgb(178, 47, 196);
         transition: 250ms;
     }
-    Button {
+    #login-button {
         display: none !important;
     }
 }
